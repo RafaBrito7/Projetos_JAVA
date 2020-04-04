@@ -1,7 +1,7 @@
 package model.entities;
 
 public class Disciplina {
-	private int id;
+	private Integer id;
 	private String nome;
 	private String ementa;
 	

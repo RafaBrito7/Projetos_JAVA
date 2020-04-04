@@ -5,7 +5,7 @@ import java.util.Date;
 public abstract class Pessoa {
 	
 	private String nome;
-	private int id;
+	private Integer id;
 	private Date dataNascimento;
 	private String nomeUsuario;
 	private String senha;
@@ -13,7 +13,7 @@ public abstract class Pessoa {
 	public Pessoa() {
 	}
 	
-	public Pessoa(String nome, int id, Date dataNascimento, String nomeUsuario, String senha) {
+	public Pessoa(String nome, Integer id, Date dataNascimento, String nomeUsuario, String senha) {
 		this.nome = nome;
 		this.id = id;
 		this.dataNascimento = dataNascimento;

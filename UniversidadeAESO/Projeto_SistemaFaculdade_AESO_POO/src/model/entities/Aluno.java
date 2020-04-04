@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class Aluno extends Pessoa{
 	
-	private int periodo;
+	private Integer periodo;
 
-	public Aluno(String nome, int id, Date dataNascimento, String nomeUsuario, String senha, int periodo) {
+	public Aluno(String nome, Integer id, Date dataNascimento, String nomeUsuario, String senha, Integer periodo) {
 		super(nome, id, dataNascimento, nomeUsuario, senha);
 		this.periodo = periodo;
 	}
