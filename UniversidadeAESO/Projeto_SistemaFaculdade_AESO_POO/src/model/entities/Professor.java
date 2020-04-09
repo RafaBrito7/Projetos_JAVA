@@ -18,5 +18,9 @@ public class Professor extends Pessoa{
 		this.cargo = cargo;
 	}
 	
-
+	public String toString() {
+		return "ID: " + getId() + ",Nome: " + getNome() + ",Nascido em "
+				+ getDataNascimento() + ", com o Cargo de " + getCargo() + "."
+				+ "\nInformações de login: \nuser: " + getNomeUsuario() + " / senha: " + getSenha();
+	}
 }

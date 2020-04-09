@@ -61,5 +61,7 @@ public abstract class Pessoa {
 		this.senha = senha;
 	}
 	
+	public abstract String toString();
+	
 
 }
