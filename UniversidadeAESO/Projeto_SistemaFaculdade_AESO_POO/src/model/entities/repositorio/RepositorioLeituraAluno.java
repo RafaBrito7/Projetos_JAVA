@@ -3,15 +3,13 @@ package model.entities.repositorio;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
 
 import model.entities.Aluno;
 
-public class RepositorioLeituraAluno {
+public class RepositorioLeituraAluno implements InterfaceLeitura {
 	//Classe para Leitura de todos os Dados do Aluno
 	
-	public Aluno lerDadosAluno() throws ParseException {
-		Scanner sc = new Scanner(System.in);
+	public Aluno lerDados() throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 		System.out.println("[CADASTRO ALUNO]");
@@ -27,7 +25,6 @@ public class RepositorioLeituraAluno {
 		String nomeUsuario = sc.next();
 		System.out.print("Informe uma senha: ");
 		String senha = sc.next();
-		sc.close();
 		return new Aluno(nome, id, dataNascimento, nomeUsuario, senha, periodo);
 		
 	}

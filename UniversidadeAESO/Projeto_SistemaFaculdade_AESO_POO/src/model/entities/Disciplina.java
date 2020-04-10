@@ -35,6 +35,10 @@ public class Disciplina {
 		this.ementa = ementa;
 	}
 	
-	
+	public String toString() {
+		return "ID: " + getId() + "\n"
+				+ getNome() + " - " + getEmenta();
+		
+	}
 
 }

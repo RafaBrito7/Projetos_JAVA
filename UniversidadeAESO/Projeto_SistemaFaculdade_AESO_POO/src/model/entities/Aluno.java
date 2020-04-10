@@ -26,7 +26,11 @@ public class Aluno extends Pessoa{
 	public String toString() {
 		return "ID: " + getId() + ", NOME: " + getNome() + ", NASCIMENTO "
 				+ sdf.format(getDataNascimento()) + ", PERÍODO " + getPeriodo() + "."
-				+ "\n \nInformações de login: \nuser: " + getNomeUsuario() + " / senha: " + getSenha();
+				+ "\n----> Informações de login: \n----> user: " + getNomeUsuario() + " / senha: " + getSenha();
+	}
+	
+	public String nomeAlunos() {
+		return getNome();
 	}
 	
 }

@@ -1,9 +1,11 @@
 package model.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Professor extends Pessoa{
 	private String cargo;
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	public Professor(String nome, int id, Date dataNascimento, String nomeUsuario, String senha, String cargo) {
 		super(nome, id, dataNascimento, nomeUsuario, senha);
@@ -20,7 +22,7 @@ public class Professor extends Pessoa{
 	
 	public String toString() {
 		return "ID: " + getId() + ",Nome: " + getNome() + ",Nascido em "
-				+ getDataNascimento() + ", com o Cargo de " + getCargo() + "."
-				+ "\nInformações de login: \nuser: " + getNomeUsuario() + " / senha: " + getSenha();
+				+ sdf.format(getDataNascimento()) + ", com o Cargo de " + getCargo() + "."
+				+ "\n----> Informações de login: \n----> user: " + getNomeUsuario() + " / senha: " + getSenha();
 	}
 }
