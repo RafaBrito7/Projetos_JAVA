@@ -6,9 +6,8 @@ import java.util.Date;
 
 import model.entities.Professor;
 
+//Classe para Leitura de todos os Dados do Professor
 public class RepositorioLeituraProfessor implements InterfaceLeitura {
-	//Classe para Leitura de todos os Dados do Professor
-	
 	public Professor lerDados() throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 

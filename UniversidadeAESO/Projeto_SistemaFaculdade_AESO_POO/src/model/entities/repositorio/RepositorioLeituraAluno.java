@@ -6,13 +6,13 @@ import java.util.Date;
 
 import model.entities.Aluno;
 
+//Classe para Leitura de todos os Dados do Aluno
 public class RepositorioLeituraAluno implements InterfaceLeitura {
-	//Classe para Leitura de todos os Dados do Aluno
-	
 	public Aluno lerDados() throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 		System.out.println("[CADASTRO ALUNO]");
+		sc.nextLine();
 		System.out.print("Informe o nome: ");
 		String nome = sc.nextLine();
 		System.out.print("Informe a data de nascimento(dd/mm/yyyy): ");

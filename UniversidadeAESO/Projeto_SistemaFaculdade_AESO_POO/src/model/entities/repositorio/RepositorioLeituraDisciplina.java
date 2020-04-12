@@ -2,12 +2,8 @@ package model.entities.repositorio;
 
 import model.entities.Disciplina;
 
+//Classe para Leitura de todos os Dados de uma nova Disciplina
 public class RepositorioLeituraDisciplina  implements InterfaceLeitura {
-	/*
-	private Integer id;
-	private String nome;
-	private String ementa;
-	 */
 	public Disciplina lerDados() {
 		System.out.println("[CADASTRO DE DISCIPLINA]");
 		System.out.print("Número da ID: ");

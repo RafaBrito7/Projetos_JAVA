@@ -1,12 +1,13 @@
 package model.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Turma {
 	private Integer id;
 	private Disciplina disciplina;
 	private Professor professor;
-	private List<Aluno> aluno;
+	private List<Aluno> aluno = new ArrayList<>();
 	private Integer capacidadeTurma;
 	
 	public Turma(Integer id, Disciplina disciplina, Professor professor, Integer capacidadeTurma) {
@@ -14,6 +15,10 @@ public class Turma {
 		this.disciplina = disciplina;
 		this.professor = professor;
 		this.capacidadeTurma = capacidadeTurma;
+	}
+	
+	public Turma() {
+		
 	}
 
 	public Integer getId() {
@@ -56,6 +61,9 @@ public class Turma {
 		this.capacidadeTurma = capacidadeTurma;
 	}
 	
+	public void adicionarAluno(Aluno aluno) {
+		this.aluno.add(aluno);
+	}
 	
 	public String toString() {
 		return "---------------[Turma A]---------------" + "\n\n"
