@@ -16,9 +16,9 @@ import model.exception.DomainException;
 public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 
 	public static void main(String[] args) throws DomainException, ParseException { // NOPMD by rafaB on 09/04/2020
-		
+
 		// Criação dos atributos que serão usados no main
-		
+
 		Scanner sc = new Scanner(System.in);
 		RepositorioLeituraMenu menuRepo = new RepositorioLeituraMenu();
 		Turma turma = new Turma();
@@ -28,61 +28,74 @@ public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 		System.out.println("Bem vindo a versão Alfa do WhiteBoard!");
 		System.out.println("");
 
-		//Saída de Dados do Menu e Entrada, através do método da Class RepositorioLeituraMenu
-		
+		// Saída de Dados do Menu e Entrada, através do método da Class
+		// RepositorioLeituraMenu
 		int escolhaMenu = menuRepo.lerMenuPrincipal();
 
-		// <OPEN> LAÇO PRINCIPAL Leitura e Cadastro de todos os SubDados para Criação de uma Turma 
-		
+		// <OPEN> LAÇO PRINCIPAL Leitura e Cadastro de todos os SubDados para Criação de
+		// uma Turma
 		while (escolhaMenu != 9) {
 			
-			//<OPEN> LAÇOS SECUNDÁRIOS
-			
-			if (escolhaMenu == 0) {
-				
-				//<OPEN> Laço Criação Aluno
+			// <OPEN> LAÇOS SECUNDÁRIOS
+			switch (escolhaMenu) {
+
+			case 0: {
+				// <OPEN> Laço Criação Aluno
 				do {
 					turma.adicionarAluno(new RepositorioLeituraAluno().lerDados());
 					System.out.println("Aluno adicionado!");
 					escolhaMenu = menuRepo.lerMenuAluno();
 
 				} while (escolhaMenu != 9);
-				//<CLOSE/> Laço Criação Aluno
-				
-				System.out.println("Número de Alunos adicionados = " + turma.getAluno().size());
+				// <CLOSE/> Laço Criação Aluno
 
-			} else if (escolhaMenu == 1) {
-				
-				//<OPEN> Laço Criação Professor
+				System.out.println("Número de Alunos adicionados = " + turma.getAluno().size());
+				break;
+			}
+
+			case 1: {
+				// <OPEN> Laço Criação Professor
 				do {
 					listaProfessores.add(new RepositorioLeituraProfessor().lerDados());
 					System.out.println("Professor adicionado!");
 					escolhaMenu = menuRepo.lerMenuProfessor();
 
 				} while (escolhaMenu != 9);
-				//<CLOSE/> Laço Criação Professor
-				
-				System.out.println("Número de Professores adicionados = " + listaProfessores.size());
+				// <CLOSE/> Laço Criação Professor
 
-			} else if (escolhaMenu == 2) {
-				
-				//<OPEN> Laço Criação Disciplina
+				System.out.println("Número de Professores adicionados = " + listaProfessores.size());
+				break;
+			}
+
+			case 2: {
+				// <OPEN> Laço Criação Disciplina
 				do {
 					listaDisciplinas.add(new RepositorioLeituraDisciplina().lerDados());
 					System.out.println("Disciplina adicionada!");
 					escolhaMenu = menuRepo.lerMenuDisciplina();
 
 				} while (escolhaMenu != 9);
-				//<CLOSE/> Laço Criação Disciplina
-				
+				// <CLOSE/> Laço Criação Disciplina
+
 				System.out.println("Número de Disciplinas adicionadas = " + listaDisciplinas.size());
+				break;
 			}
-			//<CLOSE/> LAÇO SECUNDÁRIO
 
-			escolhaMenu = menuRepo.lerMenuSecundario();
-		}
-		//<CLOSE/> LAÇO PRINCIPAL
+			case 9: {
+				// Comando de sair do Laço Secundário
+				break;
+			}
 
+			default:
+				throw new IllegalArgumentException("Valor Incorreto! Não existe a opção: " + escolhaMenu);
+
+			} // <CLOSE/> LAÇO SECUNDÁRIO / Listas
+
+			escolhaMenu = menuRepo.lerMenuPrincipal();
+
+		} // <CLOSE/> LAÇO PRINCIPAL / MenuPrincipal
+
+		
 		sc.close();
 	}
 
