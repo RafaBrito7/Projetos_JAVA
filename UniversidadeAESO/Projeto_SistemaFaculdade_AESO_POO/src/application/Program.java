@@ -16,50 +16,72 @@ import model.exception.DomainException;
 public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 
 	public static void main(String[] args) throws DomainException, ParseException { // NOPMD by rafaB on 09/04/2020
+		
+		// Criação dos atributos que serão usados no main
+		
 		Scanner sc = new Scanner(System.in);
 		RepositorioLeituraMenu menuRepo = new RepositorioLeituraMenu();
 		Turma turma = new Turma();
 		List<Professor> listaProfessores = new ArrayList<>();
+		List<Disciplina> listaDisciplinas = new ArrayList<>();
 
 		System.out.println("Bem vindo a versão Alfa do WhiteBoard!");
 		System.out.println("");
 
+		//Saída de Dados do Menu e Entrada, através do método da Class RepositorioLeituraMenu
+		
 		int escolhaMenu = menuRepo.lerMenuPrincipal();
-		if (escolhaMenu == 0) {
-			do {
-				turma.adicionarAluno(new RepositorioLeituraAluno().lerDados());
-				System.out.println("Aluno adicionado!");
-				escolhaMenu = menuRepo.lerMenuAluno();
 
-			} while (escolhaMenu != 9);
-
-			System.out.println("Número de Alunos adicionados = " + turma.getAluno().size());
-
-		} else if (escolhaMenu == 1) {
-			do {
-				listaProfessores.add(new RepositorioLeituraProfessor().lerDados());
-				System.out.println("Professor adicionado!");
-				escolhaMenu = menuRepo.lerMenuProfessor();
-
-			} while (escolhaMenu != 9);
-
-			System.out.println("Número de Professores adicionados = " + listaProfessores.size());
+		// <OPEN> LAÇO PRINCIPAL Leitura e Cadastro de todos os SubDados para Criação de uma Turma 
+		
+		while (escolhaMenu != 9) {
 			
-		} else if (escolhaMenu == 2) {
+			//<OPEN> LAÇOS SECUNDÁRIOS
 			
+			if (escolhaMenu == 0) {
+				
+				//<OPEN> Laço Criação Aluno
+				do {
+					turma.adicionarAluno(new RepositorioLeituraAluno().lerDados());
+					System.out.println("Aluno adicionado!");
+					escolhaMenu = menuRepo.lerMenuAluno();
+
+				} while (escolhaMenu != 9);
+				//<CLOSE/> Laço Criação Aluno
+				
+				System.out.println("Número de Alunos adicionados = " + turma.getAluno().size());
+
+			} else if (escolhaMenu == 1) {
+				
+				//<OPEN> Laço Criação Professor
+				do {
+					listaProfessores.add(new RepositorioLeituraProfessor().lerDados());
+					System.out.println("Professor adicionado!");
+					escolhaMenu = menuRepo.lerMenuProfessor();
+
+				} while (escolhaMenu != 9);
+				//<CLOSE/> Laço Criação Professor
+				
+				System.out.println("Número de Professores adicionados = " + listaProfessores.size());
+
+			} else if (escolhaMenu == 2) {
+				
+				//<OPEN> Laço Criação Disciplina
+				do {
+					listaDisciplinas.add(new RepositorioLeituraDisciplina().lerDados());
+					System.out.println("Disciplina adicionada!");
+					escolhaMenu = menuRepo.lerMenuDisciplina();
+
+				} while (escolhaMenu != 9);
+				//<CLOSE/> Laço Criação Disciplina
+				
+				System.out.println("Número de Disciplinas adicionadas = " + listaDisciplinas.size());
+			}
+			//<CLOSE/> LAÇO SECUNDÁRIO
+
+			escolhaMenu = menuRepo.lerMenuSecundario();
 		}
-
-		/*
-		 * final Aluno alunoTest = new RepositorioLeituraAluno().lerDados();
-		 * System.out.println(alunoTest.toString()); System.out.println("");
-		 * 
-		 * final Professor professorTest = new RepositorioLeituraProfessor().lerDados();
-		 * System.out.println(professorTest.toString()); System.out.println("");
-		 * 
-		 * final Disciplina disciplinaTest = new
-		 * RepositorioLeituraDisciplina().lerDados();
-		 * System.out.println(disciplinaTest.toString());
-		 */
+		//<CLOSE/> LAÇO PRINCIPAL
 
 		sc.close();
 	}
