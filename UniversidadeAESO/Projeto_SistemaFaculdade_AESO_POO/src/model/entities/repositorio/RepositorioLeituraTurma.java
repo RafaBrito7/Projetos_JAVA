@@ -1,16 +1,17 @@
 package model.entities.repositorio;
 
-import java.util.List;
+import model.entities.Turma;
 
-import model.entities.Aluno;
-
-public class RepositorioLeituraTurma {
-
-	public void ListagemAlunos(List<Aluno> alunos) {
-		StringBuilder sb = new StringBuilder();
+public class RepositorioLeituraTurma implements InterfaceLeitura {
+	
+	public Turma lerDadosInicial() {
+		System.out.println("[Cadastro Nova Turma]");
+		System.out.print("Informe o ID: ");
+		int id = sc.nextInt();
+		System.out.print("Informa a Capacidade Máxima da turma: ");
+		int capacidadeTurma = sc.nextInt();
 		
-		for (int i = 0; i < alunos.size(); i++) {
-			sb.append(i + "- " + alunos.toString());
-		}
+		return new Turma(id, capacidadeTurma);
 	}
+
 }

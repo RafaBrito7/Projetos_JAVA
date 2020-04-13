@@ -18,15 +18,20 @@ public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 	public static void main(String[] args) throws DomainException, ParseException { // NOPMD by rafaB on 09/04/2020
 
 		// Criação dos atributos que serão usados no main
-
 		Scanner sc = new Scanner(System.in);
 		RepositorioLeituraMenu menuRepo = new RepositorioLeituraMenu();
-		Turma turma = new Turma();
+		RepositorioLeituraTurma repositorioTurma = new RepositorioLeituraTurma();
 		List<Professor> listaProfessores = new ArrayList<>();
 		List<Disciplina> listaDisciplinas = new ArrayList<>();
 
 		System.out.println("Bem vindo a versão Alfa do WhiteBoard!");
+		System.out.println(
+				"----------------------------------------------------------------------------------------------------------------------------------------");
+		menuRepo.tutorialEntrada(); // Saida de dados com um tutorial de como funciona o programa
 		System.out.println("");
+		System.out.println(
+				"----------------------------------------------------------------------------------------------------------------------------------------");
+		Turma turma = repositorioTurma.lerDadosInicial(); // Entrada de dados com add de dados de uma turma
 
 		// Saída de Dados do Menu e Entrada, através do método da Class
 		// RepositorioLeituraMenu
@@ -35,21 +40,31 @@ public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 		// <OPEN> LAÇO PRINCIPAL Leitura e Cadastro de todos os SubDados para Criação de
 		// uma Turma
 		while (escolhaMenu != 9) {
-			
+
 			// <OPEN> LAÇOS SECUNDÁRIOS
 			switch (escolhaMenu) {
 
 			case 0: {
 				// <OPEN> Laço Criação Aluno
-				do {
-					turma.adicionarAluno(new RepositorioLeituraAluno().lerDados());
-					System.out.println("Aluno adicionado!");
-					escolhaMenu = menuRepo.lerMenuAluno();
-
-				} while (escolhaMenu != 9);
+					while ((turma.getAluno().size() + 1) < (int) turma.getCapacidadeTurma()) {
+						turma.adicionarAluno(new RepositorioLeituraAluno().lerDados());
+						
+						System.out.println("Aluno adicionado!(" + turma.getAluno().size() + " de "
+								+ turma.getCapacidadeTurma() + ")");
+						escolhaMenu = menuRepo.lerMenuAluno();
+					}
 				// <CLOSE/> Laço Criação Aluno
-
-				System.out.println("Número de Alunos adicionados = " + turma.getAluno().size());
+					if (turma.getAluno().size() == (int) turma.getCapacidadeTurma()) {
+						System.out.println("Capacidade Máxima atingida!");
+						
+					} 
+					// Avisa ao usuário que está a 1 unidade de chegar ao máximo da capacidade da turma
+					else {
+						System.out.println("AVISO: 'Você só poderá adicionar + 1 Aluno, de acordo com a capacidade máxima da turma!'");
+						turma.adicionarAluno(new RepositorioLeituraAluno().lerDados());
+						System.out.println(
+								"Aluno adicionado! - " + turma.getAluno().size() + " de " + turma.getCapacidadeTurma());
+					}
 				break;
 			}
 
@@ -94,8 +109,13 @@ public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 			escolhaMenu = menuRepo.lerMenuPrincipal();
 
 		} // <CLOSE/> LAÇO PRINCIPAL / MenuPrincipal
-
 		
+		turma = new Turma(listaDisciplinas, listaProfessores);
+		
+		System.out.println("Resumo: ");
+		System.out.println(turma.toString());
+		System.out.println(turma.mostrarListaAluno());
+
 		sc.close();
 	}
 

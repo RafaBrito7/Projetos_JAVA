@@ -12,15 +12,10 @@ public class RepositorioLeituraMenu implements InterfaceLeitura {
 		return escolhaMenu;
 	}
 	
-	public int lerMenuSecundario () {
-		System.out.println("Escolha o que deseja fazer:");
-		System.out.println("[0] - Cadastrar Alunos");
-		System.out.println("[1] - Cadastrar Professores");
-		System.out.println("[2] - Cadastrar Disciplinas");
-		System.out.println("[3] - Cadastrar Turma");
-		System.out.println("[9] - Sair");
-		int escolhaMenu = sc.nextInt();
-		return escolhaMenu;
+	public void tutorialEntrada () {
+		System.out.println("Olá! O primeiro passo a se fazer, é criar uma Nova Turma.");
+		System.out.print("Após criar uma nova turma, você terá que adicionar Alunos, 1 Professor (responsável por aquela turma) ou mais,");
+		System.out.print(" e a disciplina da turma.");
 	}
 	
 	public int lerMenuAluno () {

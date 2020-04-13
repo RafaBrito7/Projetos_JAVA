@@ -24,7 +24,7 @@ public class Aluno extends Pessoa{
 	}
 	
 	public String toString() {
-		return "ID: " + getId() + ", NOME: " + getNome() + ", NASCIMENTO "
+		return  "NOME: " + getNome() + ", ID: " + getId() + ", NASCIMENTO "
 				+ sdf.format(getDataNascimento()) + ", PERÍODO " + getPeriodo() + "."
 				+ "\n----> Informações de login: \n----> user: " + getNomeUsuario() + " / senha: " + getSenha();
 	}
