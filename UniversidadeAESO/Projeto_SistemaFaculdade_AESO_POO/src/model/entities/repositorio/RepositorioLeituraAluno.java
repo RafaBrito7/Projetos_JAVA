@@ -28,5 +28,6 @@ public class RepositorioLeituraAluno implements InterfaceLeitura {
 		return new Aluno(nome, id, dataNascimento, nomeUsuario, senha, periodo);
 		
 	}
+	
 
 }

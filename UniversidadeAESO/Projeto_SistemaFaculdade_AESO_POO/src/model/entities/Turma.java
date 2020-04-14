@@ -69,9 +69,7 @@ public class Turma {
 	}
 
 	public String toString() {
-		return "---------------[Turma A]---------------" + "\n\n" + "ID: " + getId() + " - Disciplina: "
-				+ disciplina.getNome() + "(id: " + disciplina.getId() + ")\n" + "Professor: "
-				+ professor.getNome() + "(id: " + professor.getId() + ").\n" + "Capacidade da Turma: "
+		return "---------------[Turma 1]---------------" + "\n\n" + "ID: " + getId() + ", Capacidade da Turma: "
 				+ getCapacidadeTurma() + "\nListagem de Alunos: ";
 	}
 
@@ -79,10 +77,15 @@ public class Turma {
 		StringBuilder sb = new StringBuilder();
 		int i = 0;
 		for (Aluno listaAlunos : aluno) {
-			sb.append(++i + "-" + listaAlunos.toString() + "\n\n");
+			sb.append(++i + "- " + listaAlunos.toString() + "\n\n");
 		}
-		
 		return sb.toString();
+	}
+	
+	public String toString2 () {
+		return "Disciplina: "
+				+ disciplina.getNome() + "(id:" + disciplina.getId() + ")\n" + "Professor: "
+				+ professor.getNome() + "(id:" + professor.getId() + ").\n";
 	}
 
 }

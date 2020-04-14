@@ -30,7 +30,8 @@ public class RepositorioLeituraMenu implements InterfaceLeitura {
 	public int lerMenuProfessor () {
 		System.out.println("");
 		System.out.println("Escolha o que deseja fazer:");
-		System.out.println("[0] - Cadastrar outro Professor");
+		//System.out.println("[0] - Cadastrar outro Professor");
+		//System.out.println("[0] - Cadastrar Alunos");
 		System.out.println("[9] - Retornar ao Menu Principal");
 		int escolhaMenu = sc.nextInt();
 		return escolhaMenu;
@@ -39,8 +40,19 @@ public class RepositorioLeituraMenu implements InterfaceLeitura {
 	public int lerMenuDisciplina () {
 		System.out.println("");
 		System.out.println("Escolha o que deseja fazer:");
-		System.out.println("[0] - Cadastrar outra Disciplina");
+		//System.out.println("[0] - Cadastrar outra Disciplina");
+		//System.out.println("[0] - Cadastrar Alunos");
 		System.out.println("[9] - Retornar ao Menu Principal");
+		int escolhaMenu = sc.nextInt();
+		return escolhaMenu;
+	}
+	
+	public int lerMenuLogin() {
+		System.out.println("");
+		System.out.println("Escolha o que deseja fazer:");
+		System.out.println("[0]Logar como Aluno");
+		System.out.println("[1]Logar como Professor");
+		System.out.println("[9]Sair");
 		int escolhaMenu = sc.nextInt();
 		return escolhaMenu;
 	}
