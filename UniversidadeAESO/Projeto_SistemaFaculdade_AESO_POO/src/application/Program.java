@@ -138,30 +138,29 @@ public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 
 		switch (escolhaMenu) {
 		case 0: {
-			boolean validacao = login.validacaoProfessor(professor);
+			boolean validacao = login.validacaoAluno(turma.getAluno());
 
-			do {
-				System.out.println(validacao == true ? "" : "Erro de Login, tente novamente!");
-				validacao = login.validacaoProfessor(professor);
-			} while (validacao == false);
-
+			while (validacao == false) {
+				System.out.println(validacao == true ? "" : "------------------------------------------");
+				System.out.println("Usuário inválido! Insira novamente: ");
+				validacao = login.validacaoAluno(turma.getAluno());
+			} 
 			break;
 		}
 
 		case 1: {
 			boolean validacao = login.validacaoProfessor(professor);
 
-			do {
-				System.out.println(validacao == true ? "" : "Erro de Login, tente novamente!");
+			while (validacao == false) {
+				System.out.println(validacao == true ? "" : "------------------------------------------");
 				validacao = login.validacaoProfessor(professor);
-			} while (validacao == false);
+			} 
 
 			break;
 		}
 
 		case 9: {
 			System.out.println("Obrigado por utilizar nosso Sistema!");
-
 			break;
 		}
 		default:

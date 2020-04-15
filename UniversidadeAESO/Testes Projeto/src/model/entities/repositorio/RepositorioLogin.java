@@ -18,6 +18,7 @@ public class RepositorioLogin {
 
 		if (professor.getNomeUsuario().equals(nomeUser) && professor.getSenha().equals(senhaUser)) {
 			System.out.println("Login realizado com Sucesso!");
+			System.out.println("------------------------------------------");
 			System.out.println("Bem Vindo Professor " + professor.getNome() + "!");
 			return true;
 
