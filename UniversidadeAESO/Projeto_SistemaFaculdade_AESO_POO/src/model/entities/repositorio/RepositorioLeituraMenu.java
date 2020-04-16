@@ -1,8 +1,8 @@
 package model.entities.repositorio;
 
 public class RepositorioLeituraMenu implements InterfaceLeitura {
-	
-	public int lerMenuPrincipal () {
+
+	public int lerMenuPrincipal() {
 		System.out.println("Escolha o que deseja fazer:");
 		System.out.println("[0] - Cadastrar Alunos");
 		System.out.println("[1] - Cadastrar Professores");
@@ -11,14 +11,34 @@ public class RepositorioLeituraMenu implements InterfaceLeitura {
 		int escolhaMenu = sc.nextInt();
 		return escolhaMenu;
 	}
-	
-	public void tutorialEntrada () {
+
+	public int lerMenuSecundario(int escolha) {
+		int escolhaMenu = 5;
+		
+		if (escolha == 0) {
+			System.out.println("Escolha o que deseja fazer:");
+			System.out.println("[0] - Resumo dos Dados");
+			System.out.println("[1] - Rendimento Escolar");
+			escolhaMenu = sc.nextInt();
+		
+		} else if(escolha == 1) {
+			System.out.println("Escolha o que deseja fazer:");
+			System.out.println("[0] - Resumo dos Dados");
+			System.out.println("[1] - Adicionar Rendimento Escolar de um Aluno");
+			escolhaMenu = sc.nextInt();
+		}
+		
+		return escolhaMenu;
+	}
+
+	public void tutorialEntrada() {
 		System.out.println("Olá! O primeiro passo a se fazer, é criar uma Nova Turma.");
-		System.out.print("Após criar uma nova turma, você terá que adicionar Alunos, 1 Professor (responsável por aquela turma) ou mais,");
+		System.out.print(
+				"Após criar uma nova turma, você terá que adicionar Alunos, 1 Professor (responsável por aquela turma),");
 		System.out.print(" e a disciplina da turma.");
 	}
-	
-	public int lerMenuAluno () {
+
+	public int lerMenuAluno() {
 		System.out.println("");
 		System.out.println("Escolha o que deseja fazer:");
 		System.out.println("[0] - Cadastrar outro Aluno");
@@ -26,27 +46,27 @@ public class RepositorioLeituraMenu implements InterfaceLeitura {
 		int escolhaMenu = sc.nextInt();
 		return escolhaMenu;
 	}
-	
-	public int lerMenuProfessor () {
+
+	public int lerMenuProfessor() {
 		System.out.println("");
 		System.out.println("Escolha o que deseja fazer:");
-		//System.out.println("[0] - Cadastrar outro Professor");
-		//System.out.println("[0] - Cadastrar Alunos");
+		// System.out.println("[0] - Cadastrar outro Professor");
+		// System.out.println("[0] - Cadastrar Alunos");
 		System.out.println("[9] - Retornar ao Menu Principal");
 		int escolhaMenu = sc.nextInt();
 		return escolhaMenu;
 	}
-	
-	public int lerMenuDisciplina () {
+
+	public int lerMenuDisciplina() {
 		System.out.println("");
 		System.out.println("Escolha o que deseja fazer:");
-		//System.out.println("[0] - Cadastrar outra Disciplina");
-		//System.out.println("[0] - Cadastrar Alunos");
+		// System.out.println("[0] - Cadastrar outra Disciplina");
+		// System.out.println("[0] - Cadastrar Alunos");
 		System.out.println("[9] - Retornar ao Menu Principal");
 		int escolhaMenu = sc.nextInt();
 		return escolhaMenu;
 	}
-	
+
 	public int lerMenuLogin() {
 		System.out.println("");
 		System.out.println("Escolha o que deseja fazer:");

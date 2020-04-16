@@ -45,7 +45,7 @@ public class RepositorioLogin {
 		for (Aluno aluno2 : aluno) {
 			if (aluno2.getNomeUsuario().equals(nomeUser) && aluno2.getSenha().equals(senhaUser)) {
 				System.out.println("Login realizado com Sucesso!");
-				System.out.println("------Bem Vindo Aluno " + aluno2.getNome() + "!------");
+				System.out.println("------Bem Vindo Aluno(ª) " + aluno2.getNome() + "!------");
 				resultado = true;
 				
 			} else if (aluno2.getNomeUsuario().equals(nomeUser)) {
@@ -53,7 +53,7 @@ public class RepositorioLogin {
 					System.out.println("[ERRO] - Senha Inválida!");
 					resultado = false;
 				}
-			}
+			} 
 		}
 		return resultado;
 		

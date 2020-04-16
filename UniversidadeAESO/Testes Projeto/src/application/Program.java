@@ -54,6 +54,8 @@ public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 				validacao = login.validacaoAluno(turma.getAluno());
 			}
 			
+			menuRepo.lerMenuSecundario(escolhaMenu);
+			
 			break;
 		}
 
@@ -64,6 +66,8 @@ public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 				System.out.println(validacao == true ? "" : "------------------------------------------");
 				validacao = login.validacaoProfessor(professor);
 			} 
+			
+			menuRepo.lerMenuSecundario(escolhaMenu);
 
 			break;
 		}

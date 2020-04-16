@@ -20,6 +20,7 @@ import model.exception.DomainException;
 
 public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws DomainException, ParseException { // NOPMD by rafaB on 09/04/2020
 
 		// Criação dos atributos que serão usados no main
@@ -124,33 +125,42 @@ public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 		System.out.println(turma.toString());
 		System.out.print(turma.mostrarListaAluno());
 
-		turma = new Turma(disciplina, professor);
+		Turma turma2 = new Turma(disciplina, professor);
 
-		System.out.print(turma.toString2());
+		System.out.print(turma2.toString2());
 
 		// FIM DA PRIMEIRA FASE DO SISTEMA (OBTENÇÃO DE DADOS DE 1 TURMA COM 1 PROFESSOR
 		// COM 1 DISCIPLINA E COM X ALUNOS)
 		// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 		// INICIO DA SEGUNDA FASE DO SISTEMA LOGAR
-		escolhaMenu = menuRepo.lerMenuLogin();
+		// FUNCIONANDO ATÉ A PARTE DE LOGIN
+		
+		escolhaMenu = menuRepo.lerMenuLogin(); // MÉTODO PARA CHAMAR O MENU DE LOGIN
 		RepositorioLogin login = new RepositorioLogin();
 
+		// ESCOLHA DO USER BASEADO NO MENU LOGIN
 		switch (escolhaMenu) {
 		case 0: {
+			//MÉTODO DE VALIDAÇÃO DA LISTA DE ALUNOS
 			boolean validacao = login.validacaoAluno(turma.getAluno());
 
+			//LAÇO PARA BREKAR ERROS DE LOGIN COM USERNAME FALSO
 			while (validacao == false) {
-				System.out.println(validacao == true ? "" : "------------------------------------------");
-				System.out.println("Usuário inválido! Insira novamente: ");
+				System.out.println(validacao == true ? "" : "-------------------ERRO----------------------");
+				System.out.println("Insira novamente: ");
 				validacao = login.validacaoAluno(turma.getAluno());
-			} 
+			}
+			// MENU SECUNDÁRIO QUE VAI FALTAR TERMINAR / CHAMARÁ AS OPÇÕES QUE O ALUNO TERÁ DENTRO DO SISTEMA
+			menuRepo.lerMenuSecundario(escolhaMenu);
 			break;
 		}
 
 		case 1: {
+			//MÉTODO DE VALIDAÇÃO DE 1 PROFESSOR / FUTURAMENTE IMPLEMENTAR LISTA DE PROFESSORES
 			boolean validacao = login.validacaoProfessor(professor);
 
+			//LAÇO PARA BREKAR ERROS DE LOGIN COM USERNAME FALSO
 			while (validacao == false) {
 				System.out.println(validacao == true ? "" : "------------------------------------------");
 				validacao = login.validacaoProfessor(professor);
@@ -160,13 +170,18 @@ public class Program { // NOPMD by rafaB on 09/04/2020 21:28
 		}
 
 		case 9: {
+			// FECHA O PROGRAMA
 			System.out.println("Obrigado por utilizar nosso Sistema!");
 			break;
 		}
 		default:
+			
 			throw new IllegalArgumentException("Valor Incorreto! Não existe a opção: " + escolhaMenu);
 		}
-
+		
+		
+		// CONTINUA... 
+		//versão alfa 1.0 do WhiteBoard, finalizada em 15/04/2020 ás 21:45
 		sc.close();
 	}
 

@@ -5,9 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import model.entities.Professor;
+import model.entities.RendimentoEscolar;
+import model.entities.Turma;
 
 //Classe para Leitura de todos os Dados do Professor
 public class RepositorioLeituraProfessor implements InterfaceLeitura {
+	
 	public Professor lerDados() throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -27,6 +30,16 @@ public class RepositorioLeituraProfessor implements InterfaceLeitura {
 		System.out.print("Informe uma senha: ");
 		String senha = sc.next();
 		return new Professor(nome, id, dataNascimento, nomeUsuario, senha, cargo);
+		
+	}
+	
+	public RendimentoEscolar criarNovoRendimento() {
+		
+		
+		System.out.println("[CRIAR NOVO RENDIMENTO ESCOLAR]");
+		
+		
+		return new RendimentoEscolar(turma, aluno, nota1, nota2, nota3, trabalhos, trabalhosNotas, projeto, projetoNota);
 		
 	}
 

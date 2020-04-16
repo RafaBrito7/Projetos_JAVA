@@ -6,8 +6,8 @@ public class RendimentoEscolar {
 	private Float nota1;
 	private Float nota2;
 	private Float nota3;
-	private String trabalhos[];
-	private Float trabalhosNotas[];
+	private String trabalhos[] = new String [3];
+	private Float trabalhosNotas[] = new Float[3];
 	private String projeto;
 	private Float projetoNota;
 	
